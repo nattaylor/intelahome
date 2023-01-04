@@ -1,0 +1,91 @@
+<!-- Nexgrid intelaHome Header *********************************
+***  Version       : $ Revision:    $
+***  Author        : $ Nexgrid LLC. &#65533; 2012. All Rights Reserved. $
+***  Last Modified : $ Tuesday, June 16, 2020 3:00:19 PM  $
+*************************************************************** -->
+
+<!DOCTYPE html>
+<head>
+<style type="text/css">
+.style1 {
+	text-align: center;
+}
+.readDate {
+    color: #1C4489;
+    font-family: Calibri;
+    font-size: 11pt;
+}
+</style>
+
+
+
+<script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="../../bootstrap/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/css/main.css" />
+
+<script type="text/javascript" src="../../fusion/js/fusioncharts.js"></script>
+<script type="text/javascript" src="../../fusion/js/fusioncharts.gantt.js"></script>
+<script type="text/javascript" src="../../fusion/js/fusioncharts.charts.js"></script>
+<script type="text/javascript" src="../../fusion/js/fusioncharts.widgets.js"></script>
+<script type="text/javascript" src="../../fusion/js/themes/fusioncharts.theme.fint.js"></script>
+
+<script>
+function changeMeter(){
+	var liveDemandId = $('#meterSelect select').val();
+	window.location = "live_demand.asp?deviceId="+liveDemandId;
+}
+$(function (){
+	$("#ct-multiplier-help").popover({
+	content: 'The multiplier is applied to calculate the actual kilowatt-hours. A billing “multiplier” is used to determine the true amount of energy or demand recorded by a current transformer (CT) meter.  A CT meter is a common meter designed to measure only a portion of the energy used.  For example, a CT meter that records 1/20th of the energy passing through it would use a billing multiplier of “20x” to determine actual usage.',
+	placement: 'top'
+	});
+}); 
+</script>
+
+
+    <script>
+        window.parent.checkLive('7172');
+    </script>
+    
+
+</head>
+	<body topmargin="0" leftmargin="0" rightmargin="0" bottommargin="0" style="background:white;">
+		
+
+		<table cellpadding="0" cellspacing="0" style="width: 673px; height: 428px" background="/images/global/copyBgrnd_673x428.jpg" align="right">
+			<tr>
+				<td class="style1">                
+		
+					<div id="chart1div" style="margin-top: 25px;>
+						<div style="float:left; position:relative; z-index: -1; left: 0px; top: 0px;" id="chart">Loading Chart....</div>
+					</div>
+
+                    <script type="text/javascript">
+                        FusionCharts.ready(function () {
+                                                
+                            var realTimeLineChart = new FusionCharts({
+                                "type": "RealTimeLineDY",
+                                "renderAt": "chart1div",
+                                "width": "650",
+                                "height": "375",
+                                "dataFormat": "xml",
+                                "dataSource": "<chart exportenabled='1' exportformats='PNG=Export as PNG|JPG=Export as JPEG|PDF=Export as PDF' exporttargetwindow='_self' exportfilename='LiveDemandReport' anchorAlpha='0' lineColor ='#0066CC' palette='3' bgAlpha='0' subCaption='' bgColor='FFFFFF' caption='Real Time Consumption (53374757)' showBorder='0' dataStreamURL='/plugins/live_demand/live_demand-get.asp?id=7172' refreshInterval='10' numberSuffix=' kW' setAdaptiveYMin='1' xAxisName='' showPYAxisValue='0'  showRealTimeValue='1' realTimeValuePadding='10' labelDisplay='Rotate' slantLabels='1' numDisplaySets='96' labelStep='10' showDivLineSecondaryValue='0' showSecondaryLimits='0'><categories><category name=' 4:00:00 PM' /><category name=' 4:15:00 PM' /><category name=' 4:30:00 PM' /><category name=' 4:45:00 PM' /><category name=' 5:00:00 PM' /><category name=' 5:15:00 PM' /><category name=' 5:30:00 PM' /><category name=' 5:45:00 PM' /><category name=' 6:00:00 PM' /><category name=' 6:15:00 PM' /><category name=' 6:30:00 PM' /><category name=' 6:45:00 PM' /><category name=' 7:00:00 PM' /><category name=' 7:15:00 PM' /><category name=' 7:30:00 PM' /><category name=' 7:45:00 PM' /><category name=' 8:00:00 PM' /><category name=' 8:15:00 PM' /><category name=' 8:30:00 PM' /><category name=' 8:45:00 PM' /><category name=' 9:00:00 PM' /><category name=' 9:15:00 PM' /><category name=' 9:45:00 PM' /><category name='10:00:00 PM' /><category name='10:15:00 PM' /><category name='10:45:00 PM' /><category name='11:00:00 PM' /><category name='11:15:00 PM' /><category name='11:30:00 PM' /><category name='11:45:00 PM' /><category name='1/3/2023' /><category name='12:15:00 AM' /><category name='12:45:00 AM' /><category name=' 1:00:00 AM' /><category name=' 1:15:00 AM' /><category name=' 1:30:00 AM' /><category name=' 1:45:00 AM' /><category name=' 2:00:00 AM' /><category name=' 2:30:00 AM' /><category name=' 2:45:00 AM' /><category name=' 3:00:00 AM' /><category name=' 3:45:00 AM' /><category name=' 4:00:00 AM' /><category name=' 4:15:00 AM' /><category name=' 4:30:00 AM' /><category name=' 5:00:00 AM' /><category name=' 5:15:00 AM' /><category name=' 5:45:00 AM' /><category name=' 6:00:00 AM' /><category name=' 6:30:00 AM' /><category name=' 7:00:00 AM' /><category name=' 7:15:00 AM' /><category name=' 7:30:00 AM' /><category name=' 7:45:00 AM' /><category name=' 8:00:00 AM' /><category name=' 8:15:00 AM' /><category name=' 8:30:00 AM' /><category name=' 8:45:00 AM' /><category name=' 9:00:00 AM' /><category name=' 9:15:00 AM' /><category name=' 9:30:00 AM' /><category name=' 9:45:00 AM' /><category name='10:00:00 AM' /><category name='10:15:00 AM' /><category name='10:30:00 AM' /><category name='10:45:00 AM' /><category name='11:00:00 AM' /><category name='11:15:00 AM' /><category name='11:30:00 AM' /><category name='11:45:00 AM' /><category name='12:00:00 PM' /><category name='12:15:00 PM' /><category name='12:30:00 PM' /><category name='12:45:00 PM' /><category name=' 1:00:00 PM' /><category name=' 1:15:00 PM' /><category name=' 1:30:00 PM' /><category name=' 1:45:00 PM' /><category name=' 2:00:00 PM' /><category name=' 2:15:00 PM' /><category name=' 2:30:00 PM' /><category name=' 2:45:00 PM' /><category name=' 3:00:00 PM' /><category name=' 3:15:00 PM' /><category name=' 3:30:00 PM' /><category name=' 3:45:00 PM' /><category name=' 4:00:00 PM' /><category name=' 4:15:00 PM' /><category name=' 4:30:00 PM' /><category name=' 4:45:00 PM' /><category name=' 5:00:00 PM' /><category name=' 5:30:00 PM' /><category name=' 5:45:00 PM' /><category name=' 6:00:00 PM' /><category name=' 6:15:00 PM' /><category name=' 6:30:00 PM' /><category name=' 6:45:00 PM' /><category name=' 7:00:00 PM' /><category name=' 7:15:00 PM' /><category name=' 7:30:00 PM' /></categories><dataset seriesName='Demand' showValues='0'><set hoverText=' 4:00:00 PM, 0.564 kW' value='0.564' /><set hoverText=' 4:15:00 PM, 0.668 kW' value='0.668' /><set hoverText=' 4:30:00 PM, 0.64 kW' value='0.64' /><set hoverText=' 4:45:00 PM, 0.832 kW' value='0.832' /><set hoverText=' 5:00:00 PM, 1.064 kW' value='1.064' /><set hoverText=' 5:15:00 PM, 1.016 kW' value='1.016' /><set hoverText=' 5:30:00 PM, 1 kW' value='1' /><set hoverText=' 5:45:00 PM, 1.156 kW' value='1.156' /><set hoverText=' 6:00:00 PM, 1.012 kW' value='1.012' /><set hoverText=' 6:15:00 PM, 0.784 kW' value='0.784' /><set hoverText=' 6:30:00 PM, 0.624 kW' value='0.624' /><set hoverText=' 6:45:00 PM, 0.632 kW' value='0.632' /><set hoverText=' 7:00:00 PM, 0.62 kW' value='0.62' /><set hoverText=' 7:15:00 PM, 0.42 kW' value='0.42' /><set hoverText=' 7:30:00 PM, 0.376 kW' value='0.376' /><set hoverText=' 7:45:00 PM, 0.344 kW' value='0.344' /><set hoverText=' 8:00:00 PM, 0.312 kW' value='0.312' /><set hoverText=' 8:15:00 PM, 0.408 kW' value='0.408' /><set hoverText=' 8:30:00 PM, 0.388 kW' value='0.388' /><set hoverText=' 8:45:00 PM, 0.36 kW' value='0.36' /><set hoverText=' 9:00:00 PM, 0.344 kW' value='0.344' /><set hoverText=' 9:15:00 PM, 0.468 kW' value='0.468' /><set hoverText=' 9:45:00 PM,  kW' value='' /><set hoverText='10:00:00 PM, 0.328 kW' value='0.328' /><set hoverText='10:15:00 PM, 0.356 kW' value='0.356' /><set hoverText='10:45:00 PM,  kW' value='' /><set hoverText='11:00:00 PM, 0.336 kW' value='0.336' /><set hoverText='11:15:00 PM, 0.32 kW' value='0.32' /><set hoverText='11:30:00 PM, 0.376 kW' value='0.376' /><set hoverText='11:45:00 PM, 0.876 kW' value='0.876' /><set hoverText='1/3/2023, 0.388 kW' value='0.388' /><set hoverText='12:15:00 AM, 0.344 kW' value='0.344' /><set hoverText='12:45:00 AM,  kW' value='' /><set hoverText=' 1:00:00 AM, 0.74 kW' value='0.74' /><set hoverText=' 1:15:00 AM, 0.64 kW' value='0.64' /><set hoverText=' 1:30:00 AM, 0.6 kW' value='0.6' /><set hoverText=' 1:45:00 AM, 0.224 kW' value='0.224' /><set hoverText=' 2:00:00 AM, 0.296 kW' value='0.296' /><set hoverText=' 2:30:00 AM,  kW' value='' /><set hoverText=' 2:45:00 AM, 0.204 kW' value='0.204' /><set hoverText=' 3:00:00 AM, 0.312 kW' value='0.312' /><set hoverText=' 3:45:00 AM,  kW' value='' /><set hoverText=' 4:00:00 AM, 0.252 kW' value='0.252' /><set hoverText=' 4:15:00 AM, 0.36 kW' value='0.36' /><set hoverText=' 4:30:00 AM, 0.184 kW' value='0.184' /><set hoverText=' 5:00:00 AM,  kW' value='' /><set hoverText=' 5:15:00 AM, 0.376 kW' value='0.376' /><set hoverText=' 5:45:00 AM,  kW' value='' /><set hoverText=' 6:00:00 AM, 0.312 kW' value='0.312' /><set hoverText=' 6:30:00 AM,  kW' value='' /><set hoverText=' 7:00:00 AM,  kW' value='' /><set hoverText=' 7:15:00 AM, 0.36 kW' value='0.36' /><set hoverText=' 7:30:00 AM, 0.204 kW' value='0.204' /><set hoverText=' 7:45:00 AM, 0.252 kW' value='0.252' /><set hoverText=' 8:00:00 AM, 0.728 kW' value='0.728' /><set hoverText=' 8:15:00 AM, 0.76 kW' value='0.76' /><set hoverText=' 8:30:00 AM, 0.512 kW' value='0.512' /><set hoverText=' 8:45:00 AM, 0.904 kW' value='0.904' /><set hoverText=' 9:00:00 AM, 0.744 kW' value='0.744' /><set hoverText=' 9:15:00 AM, 0.82 kW' value='0.82' /><set hoverText=' 9:30:00 AM, 0.9 kW' value='0.9' /><set hoverText=' 9:45:00 AM, 0.864 kW' value='0.864' /><set hoverText='10:00:00 AM, 0.896 kW' value='0.896' /><set hoverText='10:15:00 AM, 0.76 kW' value='0.76' /><set hoverText='10:30:00 AM, 0.752 kW' value='0.752' /><set hoverText='10:45:00 AM, 0.716 kW' value='0.716' /><set hoverText='11:00:00 AM, 0.628 kW' value='0.628' /><set hoverText='11:15:00 AM, 0.716 kW' value='0.716' /><set hoverText='11:30:00 AM, 0.64 kW' value='0.64' /><set hoverText='11:45:00 AM, 0.58 kW' value='0.58' /><set hoverText='12:00:00 PM, 0.548 kW' value='0.548' /><set hoverText='12:15:00 PM, 0.62 kW' value='0.62' /><set hoverText='12:30:00 PM, 0.56 kW' value='0.56' /><set hoverText='12:45:00 PM, 0.708 kW' value='0.708' /><set hoverText=' 1:00:00 PM, 1.812 kW' value='1.812' /><set hoverText=' 1:15:00 PM, 0.752 kW' value='0.752' /><set hoverText=' 1:30:00 PM, 0.768 kW' value='0.768' /><set hoverText=' 1:45:00 PM, 1.232 kW' value='1.232' /><set hoverText=' 2:00:00 PM, 0.848 kW' value='0.848' /><set hoverText=' 2:15:00 PM, 0.856 kW' value='0.856' /><set hoverText=' 2:30:00 PM, 0.952 kW' value='0.952' /><set hoverText=' 2:45:00 PM, 0.78 kW' value='0.78' /><set hoverText=' 3:00:00 PM, 0.672 kW' value='0.672' /><set hoverText=' 3:15:00 PM, 0.62 kW' value='0.62' /><set hoverText=' 3:30:00 PM, 0.64 kW' value='0.64' /><set hoverText=' 3:45:00 PM, 0.64 kW' value='0.64' /><set hoverText=' 4:00:00 PM, 0.584 kW' value='0.584' /><set hoverText=' 4:15:00 PM, 0.616 kW' value='0.616' /><set hoverText=' 4:30:00 PM, 0.572 kW' value='0.572' /><set hoverText=' 4:45:00 PM, 0.612 kW' value='0.612' /><set hoverText=' 5:00:00 PM, 0.576 kW' value='0.576' /><set hoverText=' 5:30:00 PM,  kW' value='' /><set hoverText=' 5:45:00 PM, 0.704 kW' value='0.704' /><set hoverText=' 6:00:00 PM, 0.76 kW' value='0.76' /><set hoverText=' 6:15:00 PM, 0.88 kW' value='0.88' /><set hoverText=' 6:30:00 PM, 0.94 kW' value='0.94' /><set hoverText=' 6:45:00 PM, 0.812 kW' value='0.812' /><set hoverText=' 7:00:00 PM, 0.952 kW' value='0.952' /><set hoverText=' 7:15:00 PM, 0.976 kW' value='0.976' /><set hoverText=' 7:30:00 PM, 1.368 kW' value='1.368' /></dataset><styles><definition><style type='font' name='captionFont' size='11' /></definition><application><apply toObject='Caption' styles='captionFont' /><apply toObject='Realtimevalue' styles='captionFont' /></application></styles><trendlines></trendlines></chart>"
+                            });
+
+                            realTimeLineChart.setTransparent(true);
+                            realTimeLineChart.render();
+                        });
+                    </script>
+
+				</td>
+			</tr>
+			<tr>
+				<td class="readDate" align="left">
+				
+				</td>
+			</tr>			
+		</table>
+		
+	</body>
+</html>

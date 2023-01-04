@@ -1,0 +1,134 @@
+
+
+<!-- Nexgrid intelaHome Header *********************************
+***  Version       : $ Revision:    $
+***  Author        : $ Nexgrid LLC. &#65533; 2012. All Rights Reserved. $
+***  Last Modified : $ Tuesday, June 16, 2020 3:00:16 PM  $
+*************************************************************** -->
+
+<!DOCTYPE html>
+<head>
+<style type="text/css">
+.style1 {
+	text-align: right;
+}
+.style2 {
+	font-size: 9pt;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color:#333333;
+}
+a{
+	text-decoration:none;
+	color:#0066D3;
+}
+a:hover{
+	text-decoration:underline;
+}
+.readDate {
+    color: #1C4489;
+    font-family: Calibri;
+    font-size: 11pt;
+}
+
+</style>
+<script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="../../bootstrap/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/css/main.css" />
+
+
+
+
+<script type="text/javascript" src="../../fusion/js/fusioncharts.js"></script>
+<script type="text/javascript" src="../../fusion/js/fusioncharts.gantt.js"></script>
+<script type="text/javascript" src="../../fusion/js/fusioncharts.charts.js"></script>
+<script type="text/javascript" src="../../fusion/js/fusioncharts.widgets.js"></script>
+<script type="text/javascript" src="../../fusion/js/themes/fusioncharts.theme.fint.js"></script>
+
+<script>
+    function changeMeter() {
+        var liveDemandId = $('#meterSelect select').val();
+        window.location = "/plugins/demand_compare/demand_compare_month.asp?deviceId=" + liveDemandId;
+    }
+	$(function (){
+		$("#ct-multiplier-help").popover({
+		content: 'The multiplier is applied to calculate the actual kilowatt-hours. A billing “multiplier” is used to determine the true amount of energy or demand recorded by a current transformer (CT) meter.  A CT meter is a common meter designed to measure only a portion of the energy used.  For example, a CT meter that records 1/20th of the energy passing through it would use a billing multiplier of “20x” to determine actual usage.',
+		placement: 'top'
+		});
+	}); 
+</script>
+
+</head>
+
+	
+<script>
+	function exportXML() {
+		meterId = 7172
+		window.location = '/plugins/advanced/advanced-datatable-demand.asp?id=' + meterId + '&timeFrame=day';
+	}
+
+</script>
+<html>
+
+	<body topmargin="0" leftmargin="0" rightmargin="0" bottommargin="0" style="background:white;">
+		
+	
+		<table cellpadding="0" cellspacing="0" style="width: 673px; height: 428px;" background="/images/global/borderBgrnd_673x428.jpg" align="right">
+			<tr style="height: 28px;">
+				<td align="center" valign="top" style="padding-top:10px; width: 130px; height: 28px;" class="auto-style1">
+				<!--<a href="/plugins/power_generated/power_generated.asp?deviceId=7172" style="font-size:12px;">Power Generated</a></td>-->
+				<td align="center" valign="top" style="font-size: 9pt;padding-top:10px;"><span class="style2">
+                
+					    24 Hour
+                     | <a href="/plugins/meter_usage/meter_usage_week.asp?deviceId=7172">Week</a> | <a href="/plugins/meter_usage/meter_usage_month.asp?deviceId=7172">Month</a>
+                
+				</span></td>
+				<td align="center" valign="top" style="padding-top:10px; width: 125px; height: 28px;" class="auto-style1">
+					<a onclick="exportXML();"><img style="cursor:pointer" src="/images/icons/spreadsheet.png" border="0"></a>
+				</td>
+			</tr>
+			<tr>
+				<td class="style1" colspan="3">				
+		            <div id="chart1div" align="center">
+			            <div style="float:left; position:relative; z-index: -1; left: 0px; top: 0px;" id="chart"></div>
+		            </div>		
+
+                        <script type="text/javascript">
+                            FusionCharts.ready(function () {
+
+                                var c = new FusionCharts({
+                                    "type": "MSCombiDY2D",
+                                    "renderAt": "chart1div",
+                                    "width": "650",
+                                    "height": "330",
+                                    "dataFormat": "xml",
+                                    "dataSource": "<chart palette='3' exportenabled='1' exportformats='PNG=Export as PNG|JPG=Export as JPEG|PDF=Export as PDF' exporttargetwindow='_self' exportfilename='UsageReport' bgAlpha='0' caption=' Usage Hourly (53374757)' sNumberSuffix='&#176; F' showValues='0' showBorder='0' drawAnchors='1' numberSuffix=' kWh' xAxisName='Hour' yAxisName='kWh Usage' labelDisplay='ROTATE' labelStep='2' forceDecimals='1' bgColor='FFFFFF'><categories><category label='7 PM' /><category label='8 PM' /><category label='9 PM' /><category label='10 PM' /><category label='11 PM' /><category label='12 AM' /><category label='1 AM' /><category label='2 AM' /><category label='3 AM' /><category label='4 AM' /><category label='5 AM' /><category label='6 AM' /><category label='7 AM' /><category label='8 AM' /><category label='9 AM' /><category label='10 AM' /><category label='11 AM' /><category label='12 PM' /><category label='1 PM' /><category label='2 PM' /><category label='3 PM' /><category label='4 PM' /><category label='5 PM' /><category label='6 PM' /></categories><dataset seriesName='You' color='0066CC' anchorAlpha='0'><set value='0.363'/><set value='0.375'/><set value='0.383'/><set value='0.314'/><set value='0.49'/><set value='0.74'/><set value='0.44'/><set value='0.293'/><set value='0.344'/><set value='0.273'/><set value='0.285'/><set value='0.289'/><set value='0.386'/><set value='0.73'/><set value='0.87'/><set value='0.714'/><set value='0.621'/><set value='0.925'/><set value='0.9'/><set value='0.815'/><set value='0.621'/><set value='0.594'/><set value='0.69'/><set value='0.896'/></dataset><styles><definition><style type='font' name='captionFont' size='11' /></definition><application><apply toObject='Caption' styles='captionFont' /></application></styles></chart>"
+                                });
+
+                                c.setTransparent(true);
+                                c.render();
+                            });
+                        </script>
+
+
+				</td>
+			</tr>
+			<tr>
+             
+                    <td colspan="3" style="padding: 0; text-align: center;">
+					    <p style="padding: 0"><span  style="fill: rgb(2, 91, 106); stroke: none; font-family: Verdana, sans; font-size: 11px; font-weight: bold;" > 24hr Usage:</span> <span style="fill: rgb(2, 91, 106); text-anchor: end; stroke: none; font-family: Verdana, sans; font-size: 11px;">13.351 kWh</span></p>
+				    </td>
+
+		    </tr>
+            <tr>
+    			<td colspan="2" style="padding: 0; font-size: 11px;text-align: left;">
+				    
+			    </td>
+				
+
+                </tr>
+	
+		</table>
+	</body>
+</html>
